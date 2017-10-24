@@ -1,5 +1,4 @@
 
-
 @extends('dashboard')
 @section('content')
 <div class="fullwidthbanner-container">
@@ -48,7 +47,7 @@
 									<div class="ribbon-wrapper"><div class="ribbon sale">Giảm Giá</div></div>
 									@endif
 										<div class="single-item-header">
-											<a href="{{route('product_detail',$np->product_id)}}"><img src="resource/image/PD/{{$np->product_image}}" alt=""></a>
+											<a href="{{route('product_detail',$np->product_id)}}"><img src="resource/image/PD/{{$np->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$np->product_name}}</p>
@@ -60,7 +59,7 @@
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('addcart',$np->product_id)}}"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="{{route('product_detail',$np->product_id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
@@ -84,7 +83,7 @@
 									<div class="single-item">
 											
 										<div class="single-item-header">
-											<a href="{{route('product_detail',$tp->product_id)}}"><img src="resource/image/Product/top/{{$tp->product_image}}" alt=""></a>
+											<a href="{{route('product_detail',$tp->product_id)}}"><img src="resource/image/Product/top/{{$tp->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$tp->product_name}}</p>
@@ -93,7 +92,7 @@
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="{{route('addtoCart',$tp->product_id)}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('addcart',$tp->product_id)}}"><i class="fa fa-shopping-cart"></i></a>
 											<a class="beta-btn primary" href="{{route('product_detail',$tp->product_id)}}">Chi Tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>

@@ -18,17 +18,18 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('header',function($view){
             $cate = Category::all();
-            
+           
             $view->with('category',$cate);
         });
+
         view()->composer('header',function($view){
             if(Session('cart')){
-                //Lấy giỏ hàng hiện tại gán vào giỏ hàng cũ 
                 $oldCart = Session::get('cart');
-                $cart = new Cart('$oldCart');
-                $view->with(['cart'=>Session::get('cart'),'product_cart'=>$cart->items,'totalPrice'=>$cate->totalPrice,'totalQty'=>$cart->totalQty]);
+                $cart = new Cart($oldCart);
+                $view->with(['cart'=>Session::get('cart'),'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,'totalQty'=>$cart->totalQty]);
             }
         });
+     
     }
 
     /**

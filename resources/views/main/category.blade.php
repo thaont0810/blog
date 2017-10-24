@@ -42,18 +42,18 @@
 								<div class="col-sm-3">
 									<div class="single-item">
 										<div class="single-item-header">
-											<a href="{{route('product_detail',$np->product_id)}}"><img src="resource/image/PD/{{$np->product_image}}" alt=""></a>
+											<a href="{{route('product_detail',$np->id)}}"><img src="resource/image/PD/{{$np->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
-											<p class="single-item-title">{{$np->product_name}}</p>
+											<p class="single-item-title">{{$np->name}}</p>
 											<p class="single-item-price">
 												<span class="flash-del">{{$np->promotion_price}}</span>
 												<span class="flash-sale">{{$np->unit_price}} VND</span>
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="{{route('product_detail',$np->product_id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('addcart',$np->id)}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('product_detail',$np->id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
@@ -76,18 +76,18 @@
 
 									<div class="single-item">
 										<div class="single-item-header">
-											<a href="{{route('product_detail',$tp->product_id)}}" ><img src="resource/image/PD/{{$tp->product_image}}" alt="" style="padding-top:10px;"></a>
+											<a href="{{route('product_detail',$tp->product_id)}}" ><img src="resource/image/PD/{{$tp->image}}" alt="" style="padding-top:10px;"></a>
 										</div>
 										<div class="single-item-body">
-											<p class="single-item-title">{{$tp->product_name}}</p>
+											<p class="single-item-title">{{$tp->name}}</p>
 											<p class="single-item-price">
 												<span class="flash-del">{{$tp->promotion_price}}</span>
 												<span class="flash-sale">{{$tp->unit_price}} VND</span>
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="{{route('product_detail',$tp->product_id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('addcart',$tp->id)}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('product_detail',$tp->id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>

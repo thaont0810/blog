@@ -32,36 +32,38 @@
 					</div>
 
 					<div class="beta-comp">
-						<div class="cart">
-							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (3) <i class="fa fa-chevron-down"></i></div>
-							<div class="beta-dropdown cart-body">
-								@if(Session::has('cart'))
-								@foreach($product_cart as $pr)
-								<div class="cart-item">
-									<div class="media">
-										<a class="pull-left" href="#"><img src="resource/image/PD/{{$pr['item']['product_image']}}" alt=""></a>
-										<div class="media-body">
-											<span class="cart-item-title">$pr['item']['product_name']</span>
-											<span class="cart-item-amount">{{$pr['qty']}} * <span>{{$pr['item']['promotion_price']}}</span></span>
-										</div>
-									</div>
-								</div>
-								@endforeach
-							@endif
-
-								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">15.777.000đ</span></div>
-									<div class="clearfix"></div>
-
-									<div class="center">
-										<div class="space10">&nbsp;</div>
-										<a href="shopping_cart.html" class="beta-btn primary text-center">Giỏ hàng<i class="fa fa-chevron-right"></i></a>
-										<a href="checkout.html" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+					@if(Session::has('cart'))
+					<div class="cart">
+						<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}}@else 'Trống' @endif) <i class="fa fa-chevron-down"></i></div>
+						<div class="beta-dropdown cart-body">
+						
+						@foreach($product_cart as $product)
+							<div class="cart-item">
+							<a class="cart-item-delete" href="{{route('deletecart',$product['item']['product_id'])}}"><i class="fa fa-times"></i></a>
+								<div class="media">
+									<a class="pull-left" href="#"><img src="resource/image/PD/{{$product['item']['product_image']}}" alt=""></a>
+									<div class="media-body">
+										<span class="cart-item-title">{{$product['item']['product_name']}}</span>
+										<span class="cart-item-amount">{{$product['qty']}}*<span>{{number_format($product['item']['unit_price'])}} VND</span></span>
 									</div>
 								</div>
 							</div>
-						</div> <!-- .cart -->
-					</div>
+							@endforeach
+						
+							
+							<div class="cart-caption">
+								<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} VND</span></div>
+								<div class="clearfix"></div>
+
+								<div class="center">
+									<div class="space10">&nbsp;</div>
+									<a href="{{route('checkout-cart')}}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- .cart -->
+					@endif
+				</div>
 				</div>
 				<div class="clearfix"></div>
 			</div> <!-- .container -->

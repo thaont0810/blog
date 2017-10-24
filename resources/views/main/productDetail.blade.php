@@ -3,7 +3,7 @@
 	<div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Sản Phẩm  {{$prod_detail->product_name}}</h6>
+				<h6 class="inner-title">Sản Phẩm  {{$prod_detail->name}}</h6>
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
@@ -21,7 +21,7 @@
 
 					<div class="row">
 						<div class="col-sm-4">
-							<img src="resource/image/PD/{{$prod_detail->product_image}}" alt="">
+							<img src="resource/image/PD/{{$prod_detail->image}}" alt="">
 						</div>
 						<div class="col-sm-8">
 							<div class="single-item-body">
@@ -40,18 +40,11 @@
 							</div>
 							<div class="space20">&nbsp;</div>
 
-							<p>Options:</p>
+							<p>Bấm để chọn sản phẩm</p>
 							<div class="single-item-options">
 								
-								<select class="wc-select" name="color">
-									<option>Số Lượng</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-								<a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+								
+								<a class="add-to-cart" href="{{route('addcart',$prod_detail->product_id)}}"><i class="fa fa-shopping-cart fa-5x "></i></a>
 								<div class="clearfix"></div>
 							</div>
 						</div>
@@ -65,7 +58,7 @@
 						</ul>
 
 						<div class="panel" id="tab-description">
-                        <p>{{$prod_detail->product_description}}</p>
+                        <p>{{$prod_detail->description}}</p>
 						</div>
 						<div class="panel" id="tab-reviews">
 							<p>Chưa có nhận xét nào </p>
@@ -80,10 +73,10 @@
 							<div class="col-sm-4">
 								<div class="single-item">
 									<div class="single-item-header">
-										<a href="product.html"><img src="resource/image/PD/{{$cp->product_image}}" alt=""></a>
+										<a href="product.html"><img src="resource/image/PD/{{$cp->image}}" alt=""></a>
 									</div>
 									<div class="single-item-body">
-										<p class="single-item-title">{{$cp->product_name}}</p>
+										<p class="single-item-title">{{$cp->name}}</p>
 										<p class="single-item-price">
                                         <span class="flash-del">{{$cp->promotion_price}} </span>
 										<span class="flash-sale">{{$cp->unit_price}} VND</span>
@@ -108,7 +101,7 @@
                         <div class="beta-sales beta-lists">
                             @foreach($top_prod as $tp)
                             <div class="media beta-sales-item">
-                                <a class="pull-left" href="best_seller_1.html"><img src="resource/image/PD/{{$tp->product_image}}" alt="" width="55px" height="58px"></a>
+                                <a class="pull-left" href="best_seller_1.html"><img src="resource/image/PD/{{$tp->image}}" alt="" width="55px" height="58px"></a>
                                 <div class="media-body" style="color: #666; font-size: 14px">
                                     {{$tp->product_name}}<br>
                                     <span class="beta-sales-price" style="margin-right: 20px; color: #ff3366; font-weight: bold; font-size: 18px;">{{number_format($tp->unit_price)}} VND</span>
@@ -125,7 +118,7 @@
                             <div class="media beta-sales-item">
                             @foreach($new_prod as $np)
                             <div class="media beta-sales-item">
-                                <a class="pull-left" href="best_seller_1.html"><img src="resource/image/PD/{{$np->product_image}}" alt="" width="55px" height="58px"></a>
+                                <a class="pull-left" href="best_seller_1.html"><img src="resource/image/PD/{{$np->image}}" alt="" width="55px" height="58px"></a>
                                 <div class="media-body" style="color: #666; font-size: 14px">
                                     {{$np->product_name}}<br>
                                     <span class="beta-sales-price" style="margin-right: 20px; color: #ff3366; font-weight: bold; font-size: 18px;">{{$np->unit_price}} VND</span>
